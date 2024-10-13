@@ -18,6 +18,11 @@
 	<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+	<div class="whatsapp">
+		<a href="https://wa.me/918291001028?text=Hi..." target="_blank">
+			<img src="images/whatapp.jpg" width="50" alt="WhatsApp">
+		</a>
+    </div>
 <div class="wrapper-main">
 	<!-- Top Bar -->
 	<div class="top-bar">
@@ -26,11 +31,10 @@
 				<div class="col-lg-6">
 					<div class="social-media">
 						<ul>
-							<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-							<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="https://www.facebook.com/share/G6FbiTTCxUsQzdrZ/?mibextid=qi2Omg"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="mailto:swiftmetal@yahoo.co.in"><i class="fab fa-google-plus-g"></i></a></li>
+							<li><a href="https://www.linkedin.com/in/krushil-jain-70864411a/"><i class="fab fa-linkedin-in"></i></a></li>
+							
 						</ul>
 					</div>
 				</div>
@@ -109,35 +113,64 @@
 			<!-- Content Row -->
 		  <div class="row">
 			<!-- Map Column -->
-				<div class="col-lg-8 mb-4 contact-left">
-					<h3>Send us a Message</h3>
-					<form name="sentMessage" id="contactForm" novalidate>
-						<div class="control-group form-group">
-							<div class="controls">
-								<input type="text" placeholder="Full Name" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
-								<p class="help-block"></p>
-							</div>
+			<div class="col-lg-8 mb-4 contact-left">
+				<h3>Send us a Message</h3>
+				<form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+					<!-- Add your Web3Forms access key here -->
+					<input type="hidden" name="access_key" value="d79025f3-76f9-44de-be68-3931a115da20">
+					
+					<div class="control-group form-group">
+						<div class="controls">
+							<input type="text" name="name" placeholder="Full Name" class="form-control" required data-validation-required-message="Please enter your name.">
+							<p class="help-block"></p>
 						</div>
-						<div class="control-group form-group">
-							<div class="controls">
-								<input type="tel" placeholder="Phone Number" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
-							</div>
+					</div>
+					<div class="control-group form-group">
+						<div class="controls">
+							<input type="tel" name="phone" placeholder="Phone Number" class="form-control" required data-validation-required-message="Please enter your phone number.">
 						</div>
-						<div class="control-group form-group">
-							<div class="controls">
-								<input type="email" placeholder="Email Address" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
-							</div>
+					</div>
+					<div class="control-group form-group">
+						<div class="controls">
+							<input type="email" name="email" placeholder="Email Address" class="form-control" required data-validation-required-message="Please enter your email address.">
 						</div>
-						<div class="control-group form-group">
-							<div class="controls">
-								<textarea rows="5" cols="100" placeholder="Message" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
-							</div>
+					</div>
+					<div class="control-group form-group">
+						<div class="controls">
+							<textarea name="message" rows="5" placeholder="Message" class="form-control" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
 						</div>
-						<div id="success"></div>
-						<!-- For success/fail messages -->
-						<button type="submit" class="btn btn-primary" id="sendMessageButton">Send Message</button>
-					</form>
-				</div>
+					</div>
+					<div id="success"></div>
+					<!-- For success/fail messages -->
+					<button type="submit" class="btn-primary" id="sendMessageButton">Send Message</button>
+				</form>
+			</div>
+		
+			<script>
+				document.getElementById('contactForm').addEventListener('submit', function(event) {
+					event.preventDefault();
+					
+					var form = document.getElementById('contactForm');
+					var formData = new FormData(form);
+		
+					fetch(form.action, {
+						method: 'POST',
+						body: formData,
+						headers: {
+							'Accept': 'application/json'
+						}
+					}).then(response => response.json()).then(data => {
+						if (data.success) {
+							document.getElementById('success').innerHTML = '<p>Message sent successfully!</p>';
+						} else {
+							document.getElementById('success').innerHTML = '<p>Failed to send message. Please try again later.</p>';
+						}
+					}).catch(error => {
+						document.getElementById('success').innerHTML = '<p>Failed to send message. Please try again later.</p>';
+					});
+				});
+			</script>
+		
 				<!-- Contact Details Column -->
 				<div class="col-lg-4 mb-4 contact-right">
 					<h3>Contact Details</h3>
@@ -173,8 +206,8 @@
     <!--footer starts from here-->
 			</div>
         <div class="container">
-            <p class="copyright text-center">All Rights Reserved. &copy; 2018 <a href="#">Zonebiz</a> Design By :
-				<a href="https://html.design/">html design</a>
+            <p class="copyright text-center">All Rights Reserved. &copy; 2024 <a href="#">Swift Metal</a> Design By :
+				<a href="https://gmxz6obqwfp9egacxauima.on.drv.tw/WWW.AKASHPORTFOLIO.COM/AKASH-PORTFOLIO-WEB-main/">AKASH YADAV</a>
             </p>
         </div>
     </footer>
