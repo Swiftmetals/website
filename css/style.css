@@ -5,6 +5,79 @@
 
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900');
 
+/* whatapp */
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-30px);
+	}
+	60% {
+		transform: translateY(-15px);
+	}
+}
+
+.whatsapp {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 70px; /* Adjusted width */
+	height: 70px; /* Adjusted height */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #25D366; /* WhatsApp green color */
+	border-radius: 50%; /* Circular button */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for better visibility */
+	z-index: 1000; /* Ensure it's on top of other content */
+	cursor: pointer; /* Indicate that it's clickable */
+	transition: all 0.3s ease; /* Smooth transition effect */
+	animation: bounce 2s infinite; /* Apply the bounce animation */
+}
+
+.whatsapp:hover {
+	transform: scale(1.1); /* Slightly enlarge on hover */
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+	background-color: #1DA851; /* Darker green on hover */
+}
+
+.whatsapp a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	position: relative;
+}
+
+.whatsapp img {
+	width: 50%; /* Adjust the image size to fit well within the button */
+	height: auto; /* Maintain aspect ratio */
+	transition: transform 0.3s ease; /* Smooth image transition effect */
+	position: absolute;
+}
+
+.whatsapp:hover img {
+	transform: rotate(15deg); /* Slight rotation on hover */
+}
+
+/* Overlay effect */
+.whatsapp::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #25D366; /* Green background color */
+	border-radius: 50%;
+	z-index: -1; /* Place behind the image */
+	opacity: 0.6; /* Slightly transparent */
+}
+/* whatapp */
+
 body {
   padding: 0px;
   font-family: 'Work Sans', sans-serif;
@@ -902,6 +975,40 @@ footer p {
 	background: transparent;
 	border-color: #55ACEE;
 	color: #55ACEE;
+}
+
+/* LinkedIn styles */
+.hb-linkedin,
+.hb-linkedin:before,
+.hb-linkedin:after {
+    background: #0077b5;      /* LinkedIn light blue */
+    border-color: #0077b5;    /* Border in the same LinkedIn color */
+    color: #ffffff;           /* White icon color */
+}
+
+.hb-linkedin:hover,
+.hb-linkedin:hover:before,
+.hb-linkedin:hover:after {
+    background: transparent;  /* Transparent background on hover */
+    border-color: #0077b5;    /* Keep the LinkedIn blue border on hover */
+    color: #0077b5;           /* LinkedIn blue icon on hover */
+}
+
+/* LinkedIn inverted styles */
+.hb-linkedin-inv,
+.hb-linkedin-inv:before,
+.hb-linkedin-inv:after {
+    background: transparent;  /* Transparent background */
+    border-color: #0077b5;    /* LinkedIn blue border */
+    color: #0077b5;           /* LinkedIn blue icon */
+}
+
+.hb-linkedin-inv:hover,
+.hb-linkedin-inv:hover:before,
+.hb-linkedin-inv:hover:after {
+    background: #0077b5;      /* LinkedIn blue background on hover */
+    border-color: #0077b5;    /* Keep the LinkedIn blue border */
+    color: #ffffff;           /* White icon color on hover */
 }
 
 /* Twitter inverts */
